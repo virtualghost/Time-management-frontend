@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { LoginData } from '../../models/login-data.model';
+import { RegisterData } from 'src/app/models/register-data.model';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class RegisterPage implements OnInit {
   form: FormGroup;
 
   constructor(
@@ -17,18 +16,22 @@ export class LoginPage implements OnInit {
     private authService: AuthService
   ) {
     this.form = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
     });
   }
 
   ngOnInit() {
   }
 
-  onLogin(form: NgForm) {
+  onRegister(form: NgForm) {
     console.log(form);
-    const data: LoginData = {
-      userName: form.value.userName,
+    const data: RegisterData = {
+      email: form.value.email,
       password: form.value.password
     };
 

@@ -5,14 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPage } from './login.page';
+import { RegisterPage } from './register.page';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage
+    component: RegisterPage
   }
 ];
 
@@ -25,7 +25,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [LoginPage],
+  declarations: [RegisterPage],
   providers: [AuthService]
 })
-export class LoginPageModule {}
+export class RegisterPageModule {}

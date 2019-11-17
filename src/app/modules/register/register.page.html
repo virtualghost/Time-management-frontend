@@ -10,39 +10,50 @@
 
     <ion-card class="card-login">
       <ion-card-title class="ion-padding-top ion-text-center">
-        <ion-text color="secondary">SIGN IN</ion-text>
+        <ion-text color="secondary">SIGN UP</ion-text>
       </ion-card-title>
 
       <ion-card-content>
         <form [formGroup]="form">
           <ion-item class="ion-no-padding">
-            <ion-label position="floating">Email</ion-label>
-            <ion-input type="email" autocomplete formControlName="email"></ion-input>
+            <ion-label position="floating">First name</ion-label>
+            <ion-input type="text" formControlName="firstName"></ion-input>
           </ion-item>
-          <div *ngIf="form.controls['email'].errors && (!form.controls['email'].pristine || form.controls['email'].dirty || form.controls['email'].touched)" class="error-msg">
-            <div [hidden]="!form.controls['email'].errors.required">Email is required</div>
-          </div>
+  
+          <ion-item class="ion-no-padding">
+            <ion-label position="floating">Last name</ion-label>
+            <ion-input type="text" formControlName="lastName"></ion-input>
+          </ion-item>
+  
+          <ion-item class="ion-no-padding">
+            <ion-label position="floating">Username</ion-label>
+            <ion-input type="text" formControlName="username"></ion-input>
+          </ion-item>
+  
+          <ion-item class="ion-no-padding">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
   
           <ion-item class="ion-no-padding">
             <ion-label position="floating">Password</ion-label>
-            <ion-input type="password" autocomplete formControlName="password"></ion-input>
+            <ion-input type="password" formControlName="password"></ion-input>
           </ion-item>
-          <div *ngIf="form.controls['password'].errors && (!form.controls['password'].pristine || form.controls['password'].dirty || form.controls['password'].touched)" class="error-msg">
-            <div [hidden]="!form.controls['password'].errors.required">Password is required</div>
-          </div>
+  
+          <ion-item class="ion-no-padding">
+            <ion-label position="floating">Confirm password</ion-label>
+            <ion-input type="password" formControlName="confirmPassword"></ion-input>
+          </ion-item>
         </form>
-       
-        <br>
 
-        <ion-title color="secondary" class="forgot-password">Forgot password?</ion-title>
         <br>
 
         <ion-row>
           <ion-col>
-            <ion-button class="login" color="secondary" [disabled]="!form.valid" (click)="onLogin(form)">Login</ion-button> 
+            <ion-button class="register" color="secondary" [disabled]="!form.valid" (click)="onRegister(form)">Register</ion-button> 
           </ion-col>
           <ion-col>
-            <ion-button [routerLink]="['/register']" color="light" class="register ion-float-right">Register <ion-icon name="arrow-forward"></ion-icon></ion-button>
+            <ion-button [routerLink]="['/login']" color="light" class="login ion-float-right">Login <ion-icon name="arrow-forward"></ion-icon></ion-button>
           </ion-col>
         </ion-row>
         
@@ -76,4 +87,5 @@
     </ion-card>
   </ion-grid>
 </ion-content>
-
+  
+  
